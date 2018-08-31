@@ -1,0 +1,732 @@
+---
+title: "Portf?lio R - Bruno Jorge"
+author: "Bruno Jorge"
+date: "29 de junho de 2018"
+output: html_document
+---
+
+## R Markdown
+
+Linguagem R para Inteligencia Artificial
+
+Esta entre as principais ferramentas dos cientistas de dados, foi criada em 1991 por Ross Ihaka e Robert Gentleman no departamento de estat?stica da Universidade de Auckland. Com a linguagem R ? poss?vel trabalhar com Analytics (Matem?tica e estat?stica do b?sico ao avan?ado, modelagens estat?sticas, machine learning, integra??es e an?lises Big Data), plotagens gr?ficas profissionais e din?micas, assim como reprodu??es geogr?ficas. ? poss?vel tamb?m criar scripts complexos e documentar processos, aplica??es que rodam em Back-End e Front-End interativo.
+
+Manipula??o com Vetores (Letra "c" significa Combine)
+
+```{r}
+vet_int <- c(2, 4, 6, 8)
+vet_int
+
+vet_num <- c( 12.1, 14, 78.5, FALSE)
+vet_num
+
+```
+
+Estrutura de dados com vetores
+
+No erro ? poss?vel combinar em um vetor de elementos de outros vetores conforme exemplo abaixo:
+
+- No comando "vet_int + 2" estou somando o valor 10 em cada um dos elementos do vetor.
+
+```{r}
+vet_int <- c(vet_int, -1, vet_int)
+vet_int
+
+vet_int + 10
+
+```
+
+Estrutura de dados com Matrizes
+
+A fun??o para criar matrizes ? a "Matrix", no exemplo abaixo criei uma matriz com 3 linhas combinada com os valores de 1 a 24, de 3 em 3.
+
+```{r}
+matrix(c(1,3,6,9,12,15,18,21,24), nrow = 3)
+```
+
+Um exemplo pr?tico dado em sala de aula usando matrizes, foi o exerc?cio do lucro nos EUA e fora dos EUA para a trilogia Star Wars. Observe as vari?veis de ambiente para consultar os valores da vari?vel "star_wars".
+
+```{r}
+nova_esperanca<- c(460.998, 314.4)
+imperio_contra_ataca <- c(290.475, 247.900)
+retorno_de_jedi <- c(309.306, 165.8)
+trilogia <- c(nova_esperanca, imperio_contra_ataca, retorno_de_jedi)
+star_wars <- matrix(trilogia, ncol = 2 , byrow = T )
+star_wars
+```
+
+Da mesma forma que podemos nomear os vetores, tamb?m podemos nomear as linhas e colunas de uma matriz.
+
+```{r}
+colnames(star_wars) <- c("EUA", "Mundo-EUA")
+rownames(star_wars) <- c("Uma nova esperan?a", "O imp?rio contra ataca", "O retorno de jedi")
+star_wars
+```
+
+Estrutura de dados com Array
+
+Arrays s?o estruturas homog?neas de v?rias dimens?es.
+Podemos dizer que vetores s?o arrays de 1 dimens?o e matrizes s?o arrays de 2 dimens?es.
+
+
+```{r}
+array(1:27, dim = c(3,3,3))
+```
+
+Estrutura de dados com Fatores
+
+Servem para categorizar dados Utilizados em dados que se repetem com freq?encia. Exemplo sem ordem:
+
+```{r}
+sexo <- c("Masc","Fem","Fem","Masc","Masc") 
+fac_sexo <- factor(sexo) 
+fac_sexo
+  
+```
+
+Exemplo ordenado:
+
+```{r}
+temperatura <- c("alta","baixa","alta","baixa","media")
+temperaturaf <- factor(temperatura, order = TRUE, levels = c("baixa","media","alta"))
+temperaturaf
+ 
+```
+
+Estrutura da dados: Data Frame
+
+Data Frame ? a extrutura mais usada para an?lise de dados, ? semelhante as matrizes, mas com fun??es espec?ficas dentro delas, como buscas e indexa??es de dados. Cada coluna pode ter um tipo diferente de dado. 
+
+```{r}
+mtcars 
+class(mtcars)
+```
+
+Estruturas de dados com listas
+
+Listas s?o usadas para guardar dados estruturados, s?o semelhantes dos vetores, por?m, cada elemento da lista pode ter um tipo diferente de dado.
+
+```{r}
+vetA <- 1:10
+matA <- matrix(1:9, ncol = 3)
+dfA <- mtcars[1:10,]
+minha_lista <- list(vetA, matA, dfA)
+minha_lista
+```
+
+Subset <- Filtrando dados de estruturas (Sub-conjunto de dados)
+
+Usando os colchetes "[]", podemos filtrar diversos tipos de dados de estruturas. 
+Nas matrizes, a primeira dimens?o ? a linha e a segunda ? a coluna. Pode-se filtrar pelo n?mero ou pelo nome, quando a dimens?o for nomeada. 
+
+
+```{r}
+mtcars
+mtcars[2,5]
+mtcars[2:4,5]
+mtcars[2:4,5:7]
+mtcars[8:9, c(1,2,4)]
+mtcars[2:4, c("mpg", "wt")]
+```
+
+Exemplo Sub-sets simples com Vetores 
+
+```{r}
+x <- c("a", "b", "c", "c", "d", "a")
+x
+length(x)
+x[3]
+x[1:4]
+x[c(FALSE, TRUE, FALSE, TRUE, TRUE, FALSE)]
+```
+
+Exercicio com matrizes
+
+```{r}
+MT1 <- matrix(data = c(a,b,c,d,e, ai), nrow = 6, byrow = T)
+MT1
+MT2 <- matrix(data = c(a,b,c,d,e, ai), nrow = 5, byrow = T)
+MT2
+MT3 <- M1 * 0.1
+MT3
+MT4 <- as.matrix(attitude(10:14, 1;6))
+MT4
+```
+
+Operações com vetores e matrizes
+
+```{r}
+1+3
+1:5+3
+matrix(1:9, 3) + 3
+
+1 *2
+1:5*2
+matrix(1:9, 3) * 2
+
+```
+
+Exercicio com Matriz
+
+```{r}
+a <- matrix(1:2, nrow = 19, ncol = 19)
+a
+
+b <- a + 1:19
+```
+
+Operações com matrizes
+
+```{r}
+M = matrix(data = 1:9, nrow = 3, ncol = 3)
+M
+```
+
+Por default os elementos são organizados por coluna na matriz, caso se deseje que estes sejam organizados por linha usa-se o argumento "byrow = TRUE".
+
+```{r}
+M2 = matrix(data = 1:9, nrow = 3, ncol = 3, byrow = TRUE)
+M2
+```
+
+A função matrix() organiza as dimensões de um vetor qualquer, não é necessário informar o número de linhas e de colunas se o vetor de dados é informado, ness caso, essa prática falicita a leitura do código.
+
+```{r}
+M3 = c(12, 23, 34, 45, 56, 67)
+M3 = matrix(data = V3, nrow = 3)
+M3
+```
+
+Criando uma matriz com valor nulo.
+
+```{r}
+M4 = matrix(data = 0, nrow = 5, ncol = 5)
+M4
+```
+
+Operacoes matriciais
+
+```{r}
+M6 = matrix(c(2, 3, 5, 6), nrow = 2)
+M6
+M7 = matrix(c(5, 3, 8, 2), nrow = 2)
+M7
+M8 = matrix(c(2, 4, 6, 2, 0,1), nrow = 2, ncol = 3)
+M8
+M9 = matrix(c(1, 0.5, 0.3, 0.5, 1, 0.9, 0.3, 0.9, 1), nrow = 3, ncol = 3)
+M9
+```
+
+Operacoes com soma e subtracao
+
+```{r}
+M_soma = M7 + M6
+print(M_soma)
+```
+
+```{r}
+M_subt = M7 - M6
+print(M_subt)
+```
+
+Multiplicacao elemento a elemento
+
+```{r}
+M_prod_elemento = M6 * M7
+M_prod_elemento
+```
+
+Transposta de uma matriz
+
+```{r}
+M_transp = t(M8)
+M_transp
+```
+
+Determinante de uma matriz
+
+```{r}
+det(M7)
+```
+
+Inversa de uma matriz
+
+```{r}
+M_inversa = solve(M6)
+M_inversa
+```
+
+Verificando a condição de existência da matriz inversa
+
+```{r}
+solve(M6)%*%M6
+```
+
+Covariância
+
+```{r}
+knitr::kable(x = women, align = 'c')
+cov(women)
+```
+
+Correlacao
+
+A correlação constitui a padronização da correlação pelo produto do desvio padrão das variáveis X e Y.
+
+```{r}
+cor(women)
+```
+
+Distâncias
+
+Uma matriz de distâncias apresenta a métrica de distâncias (e.g. distância euclidiana) entre duas observações. No R, a função dist() utiliza como default a distância euclidiana e retorna apenas a diagonal inferior da matriz de distância, visto a simetria da matriz.
+
+```{r}
+dist(women[1:5, ]) # Matriz de distância das 5 primeiras observações
+```
+
+Valores especiais
+
+NA
+Missing genérico, para representar Not Available
+
+NaN (Not a Number)
+Resultados de contas que causam erros aritméticos
+
+Inf e -Inf
+Números infinitos
+
+NULL
+Null representa o vazio, o nada!
+Até NA tem um tipo, mas NULL não!
+Não é possível colocar NULL em um vetor
+
+Exercicio com valores especiais
+
+```{r}
+v1 = NA
+v2 = NaN
+v3 = NULL
+v4 = Inf
+v5 = -Inf
+
+vall = c(v1, v2, v3, v4, v5)
+is.na(vall)
+is.nan(vall)
+is.null(vall)
+is.infinite(vall)
+is.finite(vall)
+
+is.na(v3)
+is.nan(v3)
+is.null(v3)
+is.infinite(v3)
+is.finite(v3)
+
+```
+
+Data / Hora com Lubridate
+
+O lubridate traz diversas funções para extrair os componentes de um objeto da classe date.
+
+second() - extrai os segundos.
+minute() - extrai os minutos.
+hour() - extrai a hora.
+wday() - extrai o dia da semana.
+mday() - extrai o dia do mês.
+month() - extrai o mês.
+year() - extrai o ano.
+
+Aritmética com datas
+
+Pesquisei exemplos de operações aritméticas que podemos fazer utilizando funções do lubridate, segue código abaixo:
+
+```{r}
+# Somando datas
+
+library(lubridate)
+ymd("20110604")
+mdy("06-04-2011")
+dmy("04/06/2011")
+ymd_hms("2018-04-23T19:02:13")
+dmy_hms("23/04/2018 19:03:14")
+
+data <- dmy(31012000)
+
+data + ddays(1)
+## [1] "2000-02-01"
+data + dyears(1)
+## [1] "2001-01-30"
+
+data + months(1)  # Operações que resultam em datas inválidas geram NAs.
+## [1] NA
+
+# Criando datas recorrentes
+
+reuniao <- dmy("18-03-2017")
+reunioes <- reuniao + weeks(0:10)
+reunioes
+##  [1] "2017-03-18" "2017-03-25" "2017-04-01" "2017-04-08" "2017-04-15"
+##  [6] "2017-04-22" "2017-04-29" "2017-05-06" "2017-05-13" "2017-05-20"
+## [11] "2017-05-27"
+
+# Duração de um intervalo 
+
+intervalo <-dmy("01-03-2003") %--% dmy("31-03-2003") 
+
+intervalo / ddays(1)               # Número de dias
+## [1] 30
+intervalo / dminutes(1)            # Número de minutos
+## [1] 43200
+
+as.period(intervalo)
+## [1] "30d 0H 0M 0S"
+```
+
+Amostras e simulacoes com números aleatórios
+
+rnorm - Para obter número aleatórios seguindo uma distribuição normal
+
+```{r}
+library(plotly)
+x <- rnorm(500)
+plot_ly(x = x, type = "histogram")
+```
+
+```{r}
+x <- rnorm(n = 10, mean = 20, sd = 2)
+x
+```
+
+```{r}
+summary(x)
+```
+
+dnorm - Avalia a probabilidade da normal de X
+pnorm - Avalia a probabilidade ACUMULADA da normal de X
+
+```{r}
+library(plotly)
+x <- seq(from=-5, to = 5, length.out = 500)
+y <- pnorm(x)
+plot_ly( x = x, y = y )
+```
+
+Simulando um modelo linear
+
+```{r}
+library(plotly)
+x <- seq(from=-1, to = 3, length.out = 6)
+y <- 0.5 + 2 * x
+plot_ly( x = x, y = y, type = "area" )
+```
+
+Binomial (Probabilidade binomial)
+
+```{r}
+rbinom(10, 10, prob = rep(.3,10))
+```
+
+```{r}
+library(plotly)
+x = rbinom(50000, 10, prob = rep(.2,10))
+plot_ly(x = x, type = "histogram") %>% layout(title ="Binomial com centro em 0.2" )
+```
+
+Binários (Randon Uniform) -> Distribuição uniforme entre 10 e 20
+
+```{r}
+library(plotly)
+set.seed(10)
+x <- runif(n = 1000, min = 10, max = 20)
+x
+plot_ly(x = x, type = "histogram") %>% layout(title ="Distribuição uniforme entre 10 e 20" )
+```
+
+Exercício: SAMPLE em data.frame 
+
+```{r}
+dim(airquality)
+```
+
+```{r}
+summary(airquality)
+```
+
+```{r}
+head(airquality, n = 5)
+```
+
+```{r}
+set.seed(20)
+linhas.idx <- seq_len(nrow(airquality))
+linhas.sample <- sample(linhas.idx, 5)
+airquality[linhas.sample, ]
+```
+
+Exercício: Cria uma função chamada download.data
+
+```{r}
+download.data <- function(file.url, file.local = NA){
+  if(!file.exists('data')){
+    dir.create('data')
+  }
+  if(is.na(file.local)){
+    file.local = file.path('./data', basename(file.url))
+  }
+  download.file(url = file.url, destfile = file.local , mode='wb')
+  list.files('./data')
+}
+```
+
+```{r}
+download.data('https://raw.githubusercontent.com/elthonf/fiap-mba-r/master/data/Copas.csv')
+```
+
+```{r}
+download.data('https://raw.githubusercontent.com/elthonf/fiap-mba-r/master/data/Copas-Partidas.csv')
+```
+
+```{r}
+download.data('https://raw.githubusercontent.com/elthonf/fiap-mba-r/master/data/Copas-Jogadores.csv')
+
+```
+
+Lendo arquivos locais (CSV)
+
+```{r}
+copas <- read.table('./data/Copas.csv', sep=',' , header = TRUE)
+copas.partidas <- read.table('./data/Copas-Partidas.csv', sep=',' , header = TRUE, fill = TRUE)
+copas.jogadores <- read.table('./data/Copas-Jogadores.csv', sep=',' , header = TRUE, fill = TRUE)
+```
+
+Lendo arquivos locais (Excel)
+
+```{r}
+library(readxl)
+download.data('https://raw.githubusercontent.com/elthonf/fiap-mba-r/master/data/cameras.baltimore.xlsx')
+```
+
+```{r}
+camera.data.x = read_excel(path = './data/cameras.baltimore.xlsx', sheet = 1);
+```
+
+Plots básicos
+
+```{r}
+x =  -10:10
+plot( x = x, y = x**2, main = 'Pontos') #Mesmo que  type = 'p'
+```
+```{r}
+plot( x = x, y = x**2, main = 'Linhas', type = 'l')
+```
+
+```{r}
+plot( x = x, y = x**2, main = 'Pontos e Linhas', type = 'b')
+```
+```{r}
+plot( x = x, y = x**2, main = 'Over', type = 'o')
+```
+
+```{r}
+plot( x = x, y = x**2, main = 'Histograma', type = 'h')
+```
+
+```{r}
+plot( x = x, y = x**2, main = 'Steps', type = 's')
+```
+
+```{r}
+plot( x = x, y = x**2, main = 'Steps', type = 'S')
+```
+
+Conhecendo dos dados
+
+```{r}
+head(cars)
+```
+
+```{r}
+summary(cars)
+```
+
+```{r}
+#plot( x= cars$speed, y = cars$dist)
+plot(cars)
+```
+
+Regressão linear. Adição da linha de tendência!
+```{r}
+y.tend = lm(data = cars, formula = dist ~speed)$coefficients
+print(y.tend)
+```
+
+```{r}
+x = cars$speed
+plot(cars)
+#lines(x = x, y = y.tend[1] + (x * y.tend['speed']), type = 'l', col='red')
+lines(x = x, y = cbind(1, x) %*%  y.tend, type = 'l', col='blue')
+```
+
+Histograma básico
+
+```{r}
+x =  -10:10
+cat('Dados: ')
+```
+
+```{r}
+print( sort( x**2) )
+```
+
+```{r}
+summary(x**2)
+```
+
+```{r}
+hist(   x**2 )
+```
+
+```{r}
+hist(   x**2 , freq = F)
+```
+
+```{r}
+hist(   x**2 , nclass = 2)
+```
+
+Box Plot básico
+
+```{r}
+summary(airquality)
+```
+
+```{r}
+boxplot( airquality )
+```
+
+```{r}
+summary( airquality$Ozone )
+```
+
+```{r}
+boxplot( airquality$Ozone )
+```
+
+```{r}
+boxplot( airquality$Ozone, outline = F )
+```
+
+Exercício - Summary com Box plot
+
+```{r}
+airquality %>%
+  filter( Month == 5 ) %>%
+  select( Ozone ) %>%
+  arrange(Ozone) %>%
+  unlist() %>%
+  plot()
+airquality %>%
+  filter( Month == 5 ) %>%
+  select( Ozone ) %>%
+  summary() 
+```
+
+```{r}
+lines(x = 0:27, y = rep( 1.00, 28), type = 'l', col='blue')
+```
+
+```{r}
+lines(x = 0:27, y = rep(11.00, 28), type = 'l', col='blue')
+lines(x = 0:27, y = rep(18.00, 28), type = 'l', col='red')
+```
+
+```{r}
+lines(x = 0:27, y = rep(31.50, 28), type = 'l', col='blue')
+lines(x = 0:27, y = rep(115.00, 28), type = 'l', col='blue')
+```
+
+```{r}
+#airquality$Ozone
+#filter( airquality , Month == 5 ) %>% select( Ozone ) %>% arrange(Ozone)
+#boxplot( data = airquality, formula = Ozone ~ Month  )
+boxplot( Ozone ~ Month, data = airquality )
+```
+
+```{r}
+boxplot( Temp ~ Month, data = airquality )
+```
+
+```{r}
+boxplot( Solar.R ~ Month, data = airquality )
+```
+
+```{r}
+boxplot( Wind ~ Month, data = airquality )
+```
+
+Exercício - Relação entre Vento e concentração de Ozônio
+
+```{r}
+plot(x = airquality$Wind, y = airquality$Ozone)
+```
+
+```{r}
+with(airquality, plot(x = Wind, y = Ozone))
+abline(lm(data = airquality, formula = Ozone ~Wind) , col='red')
+```
+
+```{r}
+par(mfrow=c(1,2))
+plot(airquality$Wind, airquality$Ozone)
+plot(airquality$Solar.R, airquality$Ozone)
+```
+
+Dendrogramas simples
+
+```{r}
+set.seed(1909)
+obs_centro = 5
+nclusters = 3
+populacao = nclusters * obs_centro
+x <- rnorm(populacao, mean = rep(1:nclusters, each = obs_centro), sd = 0.2)
+y <- rnorm(populacao, mean = rep(c(1, 2), each = obs_centro), sd = 0.2)
+mydata <- data.frame(x, y)
+plot(x, y, col = "blue", pch = 19, cex = 1)
+text(x + 0.05, y + 0.05, labels = as.character(1:populacao))
+```
+
+Cálculo das distâncias
+
+```{r}
+dist(mydata[1:7,])
+```
+
+```{r}
+dist(mydata[1:7,], method = "manhattan")
+```
+
+Cria o modelo de clusterização hierárquica
+
+```{r}
+modelo.hc <- hclust( dist(mydata) )
+modelo.hc
+```
+
+Plotando o dendrograma
+
+```{r}
+plot(modelo.hc,
+     main="Dendrograma simples",
+     xlab="Observações", sub="", ylab = "Distância")
+```
+
+Mapa de calor com dendrogramas simples
+
+```{r}
+set.seed(12345)
+dados <- matrix(rnorm(400),
+                nrow = 40)
+heatmap(dados )
+```
+
